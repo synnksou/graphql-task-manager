@@ -1,0 +1,14 @@
+export { AggregateAssigneesArgs } from "./AggregateAssigneesArgs";
+export { CreateManyAssigneesArgs } from "./CreateManyAssigneesArgs";
+export { CreateOneAssigneesArgs } from "./CreateOneAssigneesArgs";
+export { DeleteManyAssigneesArgs } from "./DeleteManyAssigneesArgs";
+export { DeleteOneAssigneesArgs } from "./DeleteOneAssigneesArgs";
+export { FindFirstAssigneesArgs } from "./FindFirstAssigneesArgs";
+export { FindFirstAssigneesOrThrowArgs } from "./FindFirstAssigneesOrThrowArgs";
+export { FindManyAssigneesArgs } from "./FindManyAssigneesArgs";
+export { FindUniqueAssigneesArgs } from "./FindUniqueAssigneesArgs";
+export { FindUniqueAssigneesOrThrowArgs } from "./FindUniqueAssigneesOrThrowArgs";
+export { GroupByAssigneesArgs } from "./GroupByAssigneesArgs";
+export { UpdateManyAssigneesArgs } from "./UpdateManyAssigneesArgs";
+export { UpdateOneAssigneesArgs } from "./UpdateOneAssigneesArgs";
+export { UpsertOneAssigneesArgs } from "./UpsertOneAssigneesArgs";

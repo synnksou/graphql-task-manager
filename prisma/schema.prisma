@@ -1,0 +1,106 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+generator typegraphql {
+    provider        = "typegraphql-prisma"
+    output          = "../prisma/generated/type-graphql"
+    emitIdAsIDType  = true
+    simpleResolvers = true
+}
+
+model User {
+    id              String          @id @unique @default(cuid())
+    name            String
+    password_digest String
+    active          Boolean
+    preferences     Json
+    email           String
+    last_sign_in_at DateTime
+    Tasks           Tasks[]
+    Comments        Comments[]
+    Notifications   Notifications[]
+
+    createdAt DateTime    @default(now()) @map(name: "created_at")
+    updatedAt DateTime    @updatedAt @map(name: "updated_at")
+    Assignees Assignees[]
+}
+
+model Tasks {
+    id          String      @id @unique @default(uuid())
+    title       String
+    description String?
+    ownerId     User        @relation(fields: [userId], references: [id])
+    date        DateTime
+    state       State       @default(CREATED)
+    userId      String
+    Comments    Comments[]
+    Actions     Actions[]
+    createdAt   DateTime    @default(now()) @map(name: "created_at")
+    updatedAt   DateTime    @updatedAt @map(name: "updated_at")
+    Assignees   Assignees[]
+}
+
+model Comments {
+    id         String      @id @unique @default(uuid())
+    User       User?       @relation(fields: [ownerId], references: [id])
+    Tasks      Tasks       @relation(fields: [tasksId], references: [id])
+    targetType TargetType?
+    children   Comments[]  @relation("children")
+    parent     Comments?   @relation("children", fields: [parentId], references: [id])
+    parentId   String?     @map("commentsId")
+    content    String
+    ownerId    String
+    tasksId    String
+    createdAt  DateTime    @default(now()) @map(name: "created_at")
+    updatedAt  DateTime    @updatedAt @map(name: "updated_at")
+}
+
+model Actions {
+    id            String          @id @unique @default(uuid())
+    name          Name?
+    Tasks         Tasks           @relation(fields: [targetId], references: [id])
+    targetType    TargetType?
+    targetId      String
+    Notifications Notifications[]
+}
+
+model Notifications {
+    id        String   @id @unique @default(uuid())
+    User      User     @relation(fields: [userId], references: [id])
+    Actions   Actions  @relation(fields: [actionsId], references: [id])
+    readed_at DateTime
+    userId    String
+    actionsId String
+}
+
+model Assignees {
+    id      String @id @unique @default(uuid())
+    User    User   @relation(fields: [userId], references: [id])
+    Tasks   Tasks  @relation(fields: [tasksId], references: [id])
+    tasksId String
+    userId  String
+
+    @@index([tasksId, userId])
+}
+
+enum State {
+    CREATED
+    PROGRESS
+    FINISHED
+}
+
+enum TargetType {
+    TASK
+}
+
+enum Name {
+    ADD
+    UPDATE
+    REMOVE
+}

@@ -1,0 +1,14 @@
+export { AggregateNotificationsArgs } from "./AggregateNotificationsArgs";
+export { CreateManyNotificationsArgs } from "./CreateManyNotificationsArgs";
+export { CreateOneNotificationsArgs } from "./CreateOneNotificationsArgs";
+export { DeleteManyNotificationsArgs } from "./DeleteManyNotificationsArgs";
+export { DeleteOneNotificationsArgs } from "./DeleteOneNotificationsArgs";
+export { FindFirstNotificationsArgs } from "./FindFirstNotificationsArgs";
+export { FindFirstNotificationsOrThrowArgs } from "./FindFirstNotificationsOrThrowArgs";
+export { FindManyNotificationsArgs } from "./FindManyNotificationsArgs";
+export { FindUniqueNotificationsArgs } from "./FindUniqueNotificationsArgs";
+export { FindUniqueNotificationsOrThrowArgs } from "./FindUniqueNotificationsOrThrowArgs";
+export { GroupByNotificationsArgs } from "./GroupByNotificationsArgs";
+export { UpdateManyNotificationsArgs } from "./UpdateManyNotificationsArgs";
+export { UpdateOneNotificationsArgs } from "./UpdateOneNotificationsArgs";
+export { UpsertOneNotificationsArgs } from "./UpsertOneNotificationsArgs";
