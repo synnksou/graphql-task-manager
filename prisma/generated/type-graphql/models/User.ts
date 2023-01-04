@@ -2,10 +2,10 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
-import { Assignees } from "../models/Assignees";
-import { Comments } from "../models/Comments";
-import { Notifications } from "../models/Notifications";
-import { Tasks } from "../models/Tasks";
+import { Assignee } from "../models/Assignee";
+import { Comment } from "../models/Comment";
+import { Notification } from "../models/Notification";
+import { Task } from "../models/Task";
 import { UserCount } from "../resolvers/outputs/UserCount";
 
 @TypeGraphQL.ObjectType("User", {
@@ -48,11 +48,11 @@ export class User {
   })
   last_sign_in_at!: Date;
 
-  Tasks?: Tasks[];
+  taskss?: Task[];
 
-  Comments?: Comments[];
+  comments?: Comment[];
 
-  Notifications?: Notifications[];
+  notifications?: Notification[];
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
@@ -64,7 +64,7 @@ export class User {
   })
   updatedAt!: Date;
 
-  Assignees?: Assignees[];
+  assignees?: Assignee[];
 
   @TypeGraphQL.Field(_type => UserCount, {
     nullable: true

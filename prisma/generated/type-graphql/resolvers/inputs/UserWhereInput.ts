@@ -2,14 +2,14 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { AssigneesListRelationFilter } from "../inputs/AssigneesListRelationFilter";
+import { AssigneeListRelationFilter } from "../inputs/AssigneeListRelationFilter";
 import { BoolFilter } from "../inputs/BoolFilter";
-import { CommentsListRelationFilter } from "../inputs/CommentsListRelationFilter";
+import { CommentListRelationFilter } from "../inputs/CommentListRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { JsonFilter } from "../inputs/JsonFilter";
-import { NotificationsListRelationFilter } from "../inputs/NotificationsListRelationFilter";
+import { NotificationListRelationFilter } from "../inputs/NotificationListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
-import { TasksListRelationFilter } from "../inputs/TasksListRelationFilter";
+import { TaskListRelationFilter } from "../inputs/TaskListRelationFilter";
 
 @TypeGraphQL.InputType("UserWhereInput", {
   isAbstract: true
@@ -65,20 +65,20 @@ export class UserWhereInput {
   })
   last_sign_in_at?: DateTimeFilter | undefined;
 
-  @TypeGraphQL.Field(_type => TasksListRelationFilter, {
+  @TypeGraphQL.Field(_type => TaskListRelationFilter, {
     nullable: true
   })
-  Tasks?: TasksListRelationFilter | undefined;
+  taskss?: TaskListRelationFilter | undefined;
 
-  @TypeGraphQL.Field(_type => CommentsListRelationFilter, {
+  @TypeGraphQL.Field(_type => CommentListRelationFilter, {
     nullable: true
   })
-  Comments?: CommentsListRelationFilter | undefined;
+  comments?: CommentListRelationFilter | undefined;
 
-  @TypeGraphQL.Field(_type => NotificationsListRelationFilter, {
+  @TypeGraphQL.Field(_type => NotificationListRelationFilter, {
     nullable: true
   })
-  Notifications?: NotificationsListRelationFilter | undefined;
+  notifications?: NotificationListRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
@@ -90,8 +90,8 @@ export class UserWhereInput {
   })
   updatedAt?: DateTimeFilter | undefined;
 
-  @TypeGraphQL.Field(_type => AssigneesListRelationFilter, {
+  @TypeGraphQL.Field(_type => AssigneeListRelationFilter, {
     nullable: true
   })
-  Assignees?: AssigneesListRelationFilter | undefined;
+  assignees?: AssigneeListRelationFilter | undefined;
 }

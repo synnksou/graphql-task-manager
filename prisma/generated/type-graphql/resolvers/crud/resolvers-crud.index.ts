@@ -1,6 +1,6 @@
-export { ActionsCrudResolver } from "./Actions/ActionsCrudResolver";
-export { AssigneesCrudResolver } from "./Assignees/AssigneesCrudResolver";
-export { CommentsCrudResolver } from "./Comments/CommentsCrudResolver";
-export { NotificationsCrudResolver } from "./Notifications/NotificationsCrudResolver";
-export { TasksCrudResolver } from "./Tasks/TasksCrudResolver";
+export { ActionCrudResolver } from "./Action/ActionCrudResolver";
+export { AssigneeCrudResolver } from "./Assignee/AssigneeCrudResolver";
+export { CommentCrudResolver } from "./Comment/CommentCrudResolver";
+export { NotificationCrudResolver } from "./Notification/NotificationCrudResolver";
+export { TaskCrudResolver } from "./Task/TaskCrudResolver";
 export { UserCrudResolver } from "./User/UserCrudResolver";

@@ -2,9 +2,9 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { AssigneesCreateNestedManyWithoutUserInput } from "../inputs/AssigneesCreateNestedManyWithoutUserInput";
-import { CommentsCreateNestedManyWithoutUserInput } from "../inputs/CommentsCreateNestedManyWithoutUserInput";
-import { TasksCreateNestedManyWithoutOwnerIdInput } from "../inputs/TasksCreateNestedManyWithoutOwnerIdInput";
+import { AssigneeCreateNestedManyWithoutUserInput } from "../inputs/AssigneeCreateNestedManyWithoutUserInput";
+import { CommentCreateNestedManyWithoutOwnerInput } from "../inputs/CommentCreateNestedManyWithoutOwnerInput";
+import { TaskCreateNestedManyWithoutOwnerIdInput } from "../inputs/TaskCreateNestedManyWithoutOwnerIdInput";
 
 @TypeGraphQL.InputType("UserCreateWithoutNotificationsInput", {
   isAbstract: true
@@ -45,15 +45,15 @@ export class UserCreateWithoutNotificationsInput {
   })
   last_sign_in_at!: Date;
 
-  @TypeGraphQL.Field(_type => TasksCreateNestedManyWithoutOwnerIdInput, {
+  @TypeGraphQL.Field(_type => TaskCreateNestedManyWithoutOwnerIdInput, {
     nullable: true
   })
-  Tasks?: TasksCreateNestedManyWithoutOwnerIdInput | undefined;
+  taskss?: TaskCreateNestedManyWithoutOwnerIdInput | undefined;
 
-  @TypeGraphQL.Field(_type => CommentsCreateNestedManyWithoutUserInput, {
+  @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutOwnerInput, {
     nullable: true
   })
-  Comments?: CommentsCreateNestedManyWithoutUserInput | undefined;
+  comments?: CommentCreateNestedManyWithoutOwnerInput | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
@@ -65,8 +65,8 @@ export class UserCreateWithoutNotificationsInput {
   })
   updatedAt?: Date | undefined;
 
-  @TypeGraphQL.Field(_type => AssigneesCreateNestedManyWithoutUserInput, {
+  @TypeGraphQL.Field(_type => AssigneeCreateNestedManyWithoutUserInput, {
     nullable: true
   })
-  Assignees?: AssigneesCreateNestedManyWithoutUserInput | undefined;
+  assignees?: AssigneeCreateNestedManyWithoutUserInput | undefined;
 }

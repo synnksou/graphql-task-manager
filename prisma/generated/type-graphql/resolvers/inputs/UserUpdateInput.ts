@@ -2,13 +2,13 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { AssigneesUpdateManyWithoutUserNestedInput } from "../inputs/AssigneesUpdateManyWithoutUserNestedInput";
+import { AssigneeUpdateManyWithoutUserNestedInput } from "../inputs/AssigneeUpdateManyWithoutUserNestedInput";
 import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperationsInput";
-import { CommentsUpdateManyWithoutUserNestedInput } from "../inputs/CommentsUpdateManyWithoutUserNestedInput";
+import { CommentUpdateManyWithoutOwnerNestedInput } from "../inputs/CommentUpdateManyWithoutOwnerNestedInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
-import { NotificationsUpdateManyWithoutUserNestedInput } from "../inputs/NotificationsUpdateManyWithoutUserNestedInput";
+import { NotificationUpdateManyWithoutUserNestedInput } from "../inputs/NotificationUpdateManyWithoutUserNestedInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
-import { TasksUpdateManyWithoutOwnerIdNestedInput } from "../inputs/TasksUpdateManyWithoutOwnerIdNestedInput";
+import { TaskUpdateManyWithoutOwnerIdNestedInput } from "../inputs/TaskUpdateManyWithoutOwnerIdNestedInput";
 
 @TypeGraphQL.InputType("UserUpdateInput", {
   isAbstract: true
@@ -49,20 +49,20 @@ export class UserUpdateInput {
   })
   last_sign_in_at?: DateTimeFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => TasksUpdateManyWithoutOwnerIdNestedInput, {
+  @TypeGraphQL.Field(_type => TaskUpdateManyWithoutOwnerIdNestedInput, {
     nullable: true
   })
-  Tasks?: TasksUpdateManyWithoutOwnerIdNestedInput | undefined;
+  taskss?: TaskUpdateManyWithoutOwnerIdNestedInput | undefined;
 
-  @TypeGraphQL.Field(_type => CommentsUpdateManyWithoutUserNestedInput, {
+  @TypeGraphQL.Field(_type => CommentUpdateManyWithoutOwnerNestedInput, {
     nullable: true
   })
-  Comments?: CommentsUpdateManyWithoutUserNestedInput | undefined;
+  comments?: CommentUpdateManyWithoutOwnerNestedInput | undefined;
 
-  @TypeGraphQL.Field(_type => NotificationsUpdateManyWithoutUserNestedInput, {
+  @TypeGraphQL.Field(_type => NotificationUpdateManyWithoutUserNestedInput, {
     nullable: true
   })
-  Notifications?: NotificationsUpdateManyWithoutUserNestedInput | undefined;
+  notifications?: NotificationUpdateManyWithoutUserNestedInput | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
@@ -74,8 +74,8 @@ export class UserUpdateInput {
   })
   updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => AssigneesUpdateManyWithoutUserNestedInput, {
+  @TypeGraphQL.Field(_type => AssigneeUpdateManyWithoutUserNestedInput, {
     nullable: true
   })
-  Assignees?: AssigneesUpdateManyWithoutUserNestedInput | undefined;
+  assignees?: AssigneeUpdateManyWithoutUserNestedInput | undefined;
 }

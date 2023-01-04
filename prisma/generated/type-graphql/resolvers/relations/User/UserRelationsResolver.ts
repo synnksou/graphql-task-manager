@@ -1,58 +1,58 @@
 import * as TypeGraphQL from "type-graphql";
-import { Assignees } from "../../../models/Assignees";
-import { Comments } from "../../../models/Comments";
-import { Notifications } from "../../../models/Notifications";
-import { Tasks } from "../../../models/Tasks";
+import { Assignee } from "../../../models/Assignee";
+import { Comment } from "../../../models/Comment";
+import { Notification } from "../../../models/Notification";
+import { Task } from "../../../models/Task";
 import { User } from "../../../models/User";
 import { UserAssigneesArgs } from "./args/UserAssigneesArgs";
 import { UserCommentsArgs } from "./args/UserCommentsArgs";
 import { UserNotificationsArgs } from "./args/UserNotificationsArgs";
-import { UserTasksArgs } from "./args/UserTasksArgs";
+import { UserTaskssArgs } from "./args/UserTaskssArgs";
 import { transformInfoIntoPrismaArgs, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
 
 @TypeGraphQL.Resolver(_of => User)
 export class UserRelationsResolver {
-  @TypeGraphQL.FieldResolver(_type => [Tasks], {
+  @TypeGraphQL.FieldResolver(_type => [Task], {
     nullable: false
   })
-  async Tasks(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserTasksArgs): Promise<Tasks[]> {
+  async taskss(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserTaskssArgs): Promise<Task[]> {
     return getPrismaFromContext(ctx).user.findUnique({
       where: {
         id: user.id,
       },
-    }).Tasks(args);
+    }).taskss(args);
   }
 
-  @TypeGraphQL.FieldResolver(_type => [Comments], {
+  @TypeGraphQL.FieldResolver(_type => [Comment], {
     nullable: false
   })
-  async Comments(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserCommentsArgs): Promise<Comments[]> {
+  async comments(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserCommentsArgs): Promise<Comment[]> {
     return getPrismaFromContext(ctx).user.findUnique({
       where: {
         id: user.id,
       },
-    }).Comments(args);
+    }).comments(args);
   }
 
-  @TypeGraphQL.FieldResolver(_type => [Notifications], {
+  @TypeGraphQL.FieldResolver(_type => [Notification], {
     nullable: false
   })
-  async Notifications(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserNotificationsArgs): Promise<Notifications[]> {
+  async notifications(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserNotificationsArgs): Promise<Notification[]> {
     return getPrismaFromContext(ctx).user.findUnique({
       where: {
         id: user.id,
       },
-    }).Notifications(args);
+    }).notifications(args);
   }
 
-  @TypeGraphQL.FieldResolver(_type => [Assignees], {
+  @TypeGraphQL.FieldResolver(_type => [Assignee], {
     nullable: false
   })
-  async Assignees(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserAssigneesArgs): Promise<Assignees[]> {
+  async assignees(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserAssigneesArgs): Promise<Assignee[]> {
     return getPrismaFromContext(ctx).user.findUnique({
       where: {
         id: user.id,
       },
-    }).Assignees(args);
+    }).assignees(args);
   }
 }

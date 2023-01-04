@@ -28,9 +28,23 @@ class SubscriptionResolver {
   };
 }
 
+const books = [
+  {
+    title: 'The Awakening',
+    author: 'Kate Chopin',
+  },
+  {
+    title: 'City of Glass',
+    author: 'Paul Auster',
+  },
+];
+
 const resolvers = [
-  ...generatedResolvers,
-  SubscriptionResolver,
+    ...generatedResolvers,
+    SubscriptionResolver,
+    Query: {
+     books: () => books,
+   },
 ] as TypeGraphQL.NonEmptyArray<Function>;
 
 async function main() {

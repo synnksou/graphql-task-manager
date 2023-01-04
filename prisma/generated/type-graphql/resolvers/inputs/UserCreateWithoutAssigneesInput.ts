@@ -2,9 +2,9 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { CommentsCreateNestedManyWithoutUserInput } from "../inputs/CommentsCreateNestedManyWithoutUserInput";
-import { NotificationsCreateNestedManyWithoutUserInput } from "../inputs/NotificationsCreateNestedManyWithoutUserInput";
-import { TasksCreateNestedManyWithoutOwnerIdInput } from "../inputs/TasksCreateNestedManyWithoutOwnerIdInput";
+import { CommentCreateNestedManyWithoutOwnerInput } from "../inputs/CommentCreateNestedManyWithoutOwnerInput";
+import { NotificationCreateNestedManyWithoutUserInput } from "../inputs/NotificationCreateNestedManyWithoutUserInput";
+import { TaskCreateNestedManyWithoutOwnerIdInput } from "../inputs/TaskCreateNestedManyWithoutOwnerIdInput";
 
 @TypeGraphQL.InputType("UserCreateWithoutAssigneesInput", {
   isAbstract: true
@@ -45,20 +45,20 @@ export class UserCreateWithoutAssigneesInput {
   })
   last_sign_in_at!: Date;
 
-  @TypeGraphQL.Field(_type => TasksCreateNestedManyWithoutOwnerIdInput, {
+  @TypeGraphQL.Field(_type => TaskCreateNestedManyWithoutOwnerIdInput, {
     nullable: true
   })
-  Tasks?: TasksCreateNestedManyWithoutOwnerIdInput | undefined;
+  taskss?: TaskCreateNestedManyWithoutOwnerIdInput | undefined;
 
-  @TypeGraphQL.Field(_type => CommentsCreateNestedManyWithoutUserInput, {
+  @TypeGraphQL.Field(_type => CommentCreateNestedManyWithoutOwnerInput, {
     nullable: true
   })
-  Comments?: CommentsCreateNestedManyWithoutUserInput | undefined;
+  comments?: CommentCreateNestedManyWithoutOwnerInput | undefined;
 
-  @TypeGraphQL.Field(_type => NotificationsCreateNestedManyWithoutUserInput, {
+  @TypeGraphQL.Field(_type => NotificationCreateNestedManyWithoutUserInput, {
     nullable: true
   })
-  Notifications?: NotificationsCreateNestedManyWithoutUserInput | undefined;
+  notifications?: NotificationCreateNestedManyWithoutUserInput | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true

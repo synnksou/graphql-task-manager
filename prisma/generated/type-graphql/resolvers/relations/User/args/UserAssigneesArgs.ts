@@ -1,26 +1,26 @@
 import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
-import { AssigneesOrderByWithRelationInput } from "../../../inputs/AssigneesOrderByWithRelationInput";
-import { AssigneesWhereInput } from "../../../inputs/AssigneesWhereInput";
-import { AssigneesWhereUniqueInput } from "../../../inputs/AssigneesWhereUniqueInput";
-import { AssigneesScalarFieldEnum } from "../../../../enums/AssigneesScalarFieldEnum";
+import { AssigneeOrderByWithRelationInput } from "../../../inputs/AssigneeOrderByWithRelationInput";
+import { AssigneeWhereInput } from "../../../inputs/AssigneeWhereInput";
+import { AssigneeWhereUniqueInput } from "../../../inputs/AssigneeWhereUniqueInput";
+import { AssigneeScalarFieldEnum } from "../../../../enums/AssigneeScalarFieldEnum";
 
 @TypeGraphQL.ArgsType()
 export class UserAssigneesArgs {
-  @TypeGraphQL.Field(_type => AssigneesWhereInput, {
+  @TypeGraphQL.Field(_type => AssigneeWhereInput, {
     nullable: true
   })
-  where?: AssigneesWhereInput | undefined;
+  where?: AssigneeWhereInput | undefined;
 
-  @TypeGraphQL.Field(_type => [AssigneesOrderByWithRelationInput], {
+  @TypeGraphQL.Field(_type => [AssigneeOrderByWithRelationInput], {
     nullable: true
   })
-  orderBy?: AssigneesOrderByWithRelationInput[] | undefined;
+  orderBy?: AssigneeOrderByWithRelationInput[] | undefined;
 
-  @TypeGraphQL.Field(_type => AssigneesWhereUniqueInput, {
+  @TypeGraphQL.Field(_type => AssigneeWhereUniqueInput, {
     nullable: true
   })
-  cursor?: AssigneesWhereUniqueInput | undefined;
+  cursor?: AssigneeWhereUniqueInput | undefined;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
@@ -32,8 +32,8 @@ export class UserAssigneesArgs {
   })
   skip?: number | undefined;
 
-  @TypeGraphQL.Field(_type => [AssigneesScalarFieldEnum], {
+  @TypeGraphQL.Field(_type => [AssigneeScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "tasksId" | "userId"> | undefined;
+  distinct?: Array<"id" | "taskId" | "userId"> | undefined;
 }

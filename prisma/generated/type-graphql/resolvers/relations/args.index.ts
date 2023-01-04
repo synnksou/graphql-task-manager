@@ -1,4 +1,4 @@
-export * from "./Actions/args";
-export * from "./Comments/args";
-export * from "./Tasks/args";
+export * from "./Action/args";
+export * from "./Comment/args";
+export * from "./Task/args";
 export * from "./User/args";

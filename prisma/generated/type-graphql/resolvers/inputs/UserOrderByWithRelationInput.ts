@@ -2,10 +2,10 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { AssigneesOrderByRelationAggregateInput } from "../inputs/AssigneesOrderByRelationAggregateInput";
-import { CommentsOrderByRelationAggregateInput } from "../inputs/CommentsOrderByRelationAggregateInput";
-import { NotificationsOrderByRelationAggregateInput } from "../inputs/NotificationsOrderByRelationAggregateInput";
-import { TasksOrderByRelationAggregateInput } from "../inputs/TasksOrderByRelationAggregateInput";
+import { AssigneeOrderByRelationAggregateInput } from "../inputs/AssigneeOrderByRelationAggregateInput";
+import { CommentOrderByRelationAggregateInput } from "../inputs/CommentOrderByRelationAggregateInput";
+import { NotificationOrderByRelationAggregateInput } from "../inputs/NotificationOrderByRelationAggregateInput";
+import { TaskOrderByRelationAggregateInput } from "../inputs/TaskOrderByRelationAggregateInput";
 import { SortOrder } from "../../enums/SortOrder";
 
 @TypeGraphQL.InputType("UserOrderByWithRelationInput", {
@@ -47,20 +47,20 @@ export class UserOrderByWithRelationInput {
   })
   last_sign_in_at?: "asc" | "desc" | undefined;
 
-  @TypeGraphQL.Field(_type => TasksOrderByRelationAggregateInput, {
+  @TypeGraphQL.Field(_type => TaskOrderByRelationAggregateInput, {
     nullable: true
   })
-  Tasks?: TasksOrderByRelationAggregateInput | undefined;
+  taskss?: TaskOrderByRelationAggregateInput | undefined;
 
-  @TypeGraphQL.Field(_type => CommentsOrderByRelationAggregateInput, {
+  @TypeGraphQL.Field(_type => CommentOrderByRelationAggregateInput, {
     nullable: true
   })
-  Comments?: CommentsOrderByRelationAggregateInput | undefined;
+  comments?: CommentOrderByRelationAggregateInput | undefined;
 
-  @TypeGraphQL.Field(_type => NotificationsOrderByRelationAggregateInput, {
+  @TypeGraphQL.Field(_type => NotificationOrderByRelationAggregateInput, {
     nullable: true
   })
-  Notifications?: NotificationsOrderByRelationAggregateInput | undefined;
+  notifications?: NotificationOrderByRelationAggregateInput | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
@@ -72,8 +72,8 @@ export class UserOrderByWithRelationInput {
   })
   updatedAt?: "asc" | "desc" | undefined;
 
-  @TypeGraphQL.Field(_type => AssigneesOrderByRelationAggregateInput, {
+  @TypeGraphQL.Field(_type => AssigneeOrderByRelationAggregateInput, {
     nullable: true
   })
-  Assignees?: AssigneesOrderByRelationAggregateInput | undefined;
+  assignees?: AssigneeOrderByRelationAggregateInput | undefined;
 }

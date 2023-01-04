@@ -1,26 +1,26 @@
 import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
-import { CommentsOrderByWithRelationInput } from "../../../inputs/CommentsOrderByWithRelationInput";
-import { CommentsWhereInput } from "../../../inputs/CommentsWhereInput";
-import { CommentsWhereUniqueInput } from "../../../inputs/CommentsWhereUniqueInput";
-import { CommentsScalarFieldEnum } from "../../../../enums/CommentsScalarFieldEnum";
+import { CommentOrderByWithRelationInput } from "../../../inputs/CommentOrderByWithRelationInput";
+import { CommentWhereInput } from "../../../inputs/CommentWhereInput";
+import { CommentWhereUniqueInput } from "../../../inputs/CommentWhereUniqueInput";
+import { CommentScalarFieldEnum } from "../../../../enums/CommentScalarFieldEnum";
 
 @TypeGraphQL.ArgsType()
 export class UserCommentsArgs {
-  @TypeGraphQL.Field(_type => CommentsWhereInput, {
+  @TypeGraphQL.Field(_type => CommentWhereInput, {
     nullable: true
   })
-  where?: CommentsWhereInput | undefined;
+  where?: CommentWhereInput | undefined;
 
-  @TypeGraphQL.Field(_type => [CommentsOrderByWithRelationInput], {
+  @TypeGraphQL.Field(_type => [CommentOrderByWithRelationInput], {
     nullable: true
   })
-  orderBy?: CommentsOrderByWithRelationInput[] | undefined;
+  orderBy?: CommentOrderByWithRelationInput[] | undefined;
 
-  @TypeGraphQL.Field(_type => CommentsWhereUniqueInput, {
+  @TypeGraphQL.Field(_type => CommentWhereUniqueInput, {
     nullable: true
   })
-  cursor?: CommentsWhereUniqueInput | undefined;
+  cursor?: CommentWhereUniqueInput | undefined;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
@@ -32,8 +32,8 @@ export class UserCommentsArgs {
   })
   skip?: number | undefined;
 
-  @TypeGraphQL.Field(_type => [CommentsScalarFieldEnum], {
+  @TypeGraphQL.Field(_type => [CommentScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "targetType" | "parentId" | "content" | "ownerId" | "tasksId" | "createdAt" | "updatedAt"> | undefined;
+  distinct?: Array<"id" | "ownerId" | "taskId" | "targetType" | "parentId" | "content" | "createdAt" | "updatedAt"> | undefined;
 }

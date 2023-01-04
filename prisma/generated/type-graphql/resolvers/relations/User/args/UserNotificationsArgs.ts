@@ -1,26 +1,26 @@
 import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
-import { NotificationsOrderByWithRelationInput } from "../../../inputs/NotificationsOrderByWithRelationInput";
-import { NotificationsWhereInput } from "../../../inputs/NotificationsWhereInput";
-import { NotificationsWhereUniqueInput } from "../../../inputs/NotificationsWhereUniqueInput";
-import { NotificationsScalarFieldEnum } from "../../../../enums/NotificationsScalarFieldEnum";
+import { NotificationOrderByWithRelationInput } from "../../../inputs/NotificationOrderByWithRelationInput";
+import { NotificationWhereInput } from "../../../inputs/NotificationWhereInput";
+import { NotificationWhereUniqueInput } from "../../../inputs/NotificationWhereUniqueInput";
+import { NotificationScalarFieldEnum } from "../../../../enums/NotificationScalarFieldEnum";
 
 @TypeGraphQL.ArgsType()
 export class UserNotificationsArgs {
-  @TypeGraphQL.Field(_type => NotificationsWhereInput, {
+  @TypeGraphQL.Field(_type => NotificationWhereInput, {
     nullable: true
   })
-  where?: NotificationsWhereInput | undefined;
+  where?: NotificationWhereInput | undefined;
 
-  @TypeGraphQL.Field(_type => [NotificationsOrderByWithRelationInput], {
+  @TypeGraphQL.Field(_type => [NotificationOrderByWithRelationInput], {
     nullable: true
   })
-  orderBy?: NotificationsOrderByWithRelationInput[] | undefined;
+  orderBy?: NotificationOrderByWithRelationInput[] | undefined;
 
-  @TypeGraphQL.Field(_type => NotificationsWhereUniqueInput, {
+  @TypeGraphQL.Field(_type => NotificationWhereUniqueInput, {
     nullable: true
   })
-  cursor?: NotificationsWhereUniqueInput | undefined;
+  cursor?: NotificationWhereUniqueInput | undefined;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
@@ -32,7 +32,7 @@ export class UserNotificationsArgs {
   })
   skip?: number | undefined;
 
-  @TypeGraphQL.Field(_type => [NotificationsScalarFieldEnum], {
+  @TypeGraphQL.Field(_type => [NotificationScalarFieldEnum], {
     nullable: true
   })
   distinct?: Array<"id" | "readed_at" | "userId" | "actionsId"> | undefined;
