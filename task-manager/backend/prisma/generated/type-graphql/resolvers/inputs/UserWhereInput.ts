@@ -68,7 +68,7 @@ export class UserWhereInput {
   @TypeGraphQL.Field(_type => TaskListRelationFilter, {
     nullable: true
   })
-  taskss?: TaskListRelationFilter | undefined;
+  tasks?: TaskListRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => CommentListRelationFilter, {
     nullable: true

@@ -48,7 +48,7 @@ export class User {
   })
   last_sign_in_at!: Date;
 
-  taskss?: Task[];
+  tasks?: Task[];
 
   comments?: Comment[];
 

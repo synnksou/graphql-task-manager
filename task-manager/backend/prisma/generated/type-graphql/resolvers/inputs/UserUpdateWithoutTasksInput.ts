@@ -9,10 +9,10 @@ import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdat
 import { NotificationUpdateManyWithoutUserNestedInput } from "../inputs/NotificationUpdateManyWithoutUserNestedInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
-@TypeGraphQL.InputType("UserUpdateWithoutTaskssInput", {
+@TypeGraphQL.InputType("UserUpdateWithoutTasksInput", {
   isAbstract: true
 })
-export class UserUpdateWithoutTaskssInput {
+export class UserUpdateWithoutTasksInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })

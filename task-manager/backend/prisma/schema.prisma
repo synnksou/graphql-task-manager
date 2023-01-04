@@ -22,7 +22,7 @@ model User {
     preferences     Json
     email           String
     last_sign_in_at DateTime
-    taskss          Task[]
+    tasks           Task[]
     comments        Comment[]
     notifications   Notification[]
 

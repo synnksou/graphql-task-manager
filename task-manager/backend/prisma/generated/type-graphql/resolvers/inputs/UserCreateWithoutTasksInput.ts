@@ -6,10 +6,10 @@ import { AssigneeCreateNestedManyWithoutUserInput } from "../inputs/AssigneeCrea
 import { CommentCreateNestedManyWithoutOwnerInput } from "../inputs/CommentCreateNestedManyWithoutOwnerInput";
 import { NotificationCreateNestedManyWithoutUserInput } from "../inputs/NotificationCreateNestedManyWithoutUserInput";
 
-@TypeGraphQL.InputType("UserCreateWithoutTaskssInput", {
+@TypeGraphQL.InputType("UserCreateWithoutTasksInput", {
   isAbstract: true
 })
-export class UserCreateWithoutTaskssInput {
+export class UserCreateWithoutTasksInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })

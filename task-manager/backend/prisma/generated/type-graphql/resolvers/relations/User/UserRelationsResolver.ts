@@ -7,7 +7,7 @@ import { User } from "../../../models/User";
 import { UserAssigneesArgs } from "./args/UserAssigneesArgs";
 import { UserCommentsArgs } from "./args/UserCommentsArgs";
 import { UserNotificationsArgs } from "./args/UserNotificationsArgs";
-import { UserTaskssArgs } from "./args/UserTaskssArgs";
+import { UserTasksArgs } from "./args/UserTasksArgs";
 import { transformInfoIntoPrismaArgs, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
 
 @TypeGraphQL.Resolver(_of => User)
@@ -15,12 +15,12 @@ export class UserRelationsResolver {
   @TypeGraphQL.FieldResolver(_type => [Task], {
     nullable: false
   })
-  async taskss(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserTaskssArgs): Promise<Task[]> {
+  async tasks(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserTasksArgs): Promise<Task[]> {
     return getPrismaFromContext(ctx).user.findUnique({
       where: {
         id: user.id,
       },
-    }).taskss(args);
+    }).tasks(args);
   }
 
   @TypeGraphQL.FieldResolver(_type => [Comment], {

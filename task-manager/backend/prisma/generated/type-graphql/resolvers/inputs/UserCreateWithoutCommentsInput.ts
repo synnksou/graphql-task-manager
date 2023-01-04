@@ -48,7 +48,7 @@ export class UserCreateWithoutCommentsInput {
   @TypeGraphQL.Field(_type => TaskCreateNestedManyWithoutOwnerIdInput, {
     nullable: true
   })
-  taskss?: TaskCreateNestedManyWithoutOwnerIdInput | undefined;
+  tasks?: TaskCreateNestedManyWithoutOwnerIdInput | undefined;
 
   @TypeGraphQL.Field(_type => NotificationCreateNestedManyWithoutUserInput, {
     nullable: true

@@ -52,7 +52,7 @@ export class UserUpdateInput {
   @TypeGraphQL.Field(_type => TaskUpdateManyWithoutOwnerIdNestedInput, {
     nullable: true
   })
-  taskss?: TaskUpdateManyWithoutOwnerIdNestedInput | undefined;
+  tasks?: TaskUpdateManyWithoutOwnerIdNestedInput | undefined;
 
   @TypeGraphQL.Field(_type => CommentUpdateManyWithoutOwnerNestedInput, {
     nullable: true
