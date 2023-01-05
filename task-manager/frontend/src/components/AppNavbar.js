@@ -27,7 +27,7 @@ const AppNavbar = () => {
               {'Signed in as: '}
               <strong>
                 <a title="LogOut" href="/logout/">
-                  {currentUser.name}
+                  {currentUser.data.signIn.name}
                 </a>
               </strong>
             </Navbar.Text>
