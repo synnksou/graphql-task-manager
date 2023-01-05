@@ -1,14 +1,19 @@
 import React from 'react'
+import { useMutation } from '@apollo/react-hooks'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 import User from 'store/User'
+import { CREATE_USER_MUTATION } from 'store/GraphqlQueries'
+import { navigate } from 'gatsby'
 
 const SignUp = () => {
   const [name, setName] = React.useState(User.get('new', 'name'))
   const [email, setEmail] = React.useState(User.get('new', 'email'))
   const [password, setPassword] = React.useState()
+  const [signUp, { data, loading, error }] = useMutation(CREATE_USER_MUTATION)
+
 
   const onInputChange = (e) => {
     User.set('new', { [e.target.name]: e.target.value })
@@ -21,13 +26,28 @@ const SignUp = () => {
         break
       case 'password':
         setPassword(e.target.value)
+        console.log(password)
         break
     }
   }
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    console.log(password)
+    signUp({ variables: { email: email, password: password, name: name } })
+      .then(() => {
+        navigate('/sign-in')
+      })
+      .catch((error) => {
+        alert(error)
+      })
+
+    return false
+  }
+
   return (
     <div className="col">
-      <Form>
+      <Form onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control
