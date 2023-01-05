@@ -3,6 +3,7 @@ import { User } from '../../prisma/generated/type-graphql';
 import bcrypt from 'bcrypt';
 import { PrismaClient } from '@prisma/client';
 import { formatISO } from 'date-fns';
+import {GraphQLError} from "graphql/error";
 
 @Resolver()
 export class SignUpResolver {
@@ -17,17 +18,22 @@ export class SignUpResolver {
 
     const date = formatISO(new Date());
 
-    const user = await prisma.user.create({
-      data: {
-        email,
-        password_digest: hashedPassword,
-        name,
-        active: false,
-        preferences: {},
-        last_sign_in_at: date,
-      },
-    });
+    try {
+      const user = await prisma.user.create({
+        data: {
+          email,
+          password_digest: hashedPassword,
+          name,
+          active: false,
+          preferences: {},
+          last_sign_in_at: date,
+        },
+      });
+      return user;
+    }catch(exception){
+      console.log("error", exception);
+      throw new GraphQLError("User already exists");
+    }
 
-    return user;
   }
 }
