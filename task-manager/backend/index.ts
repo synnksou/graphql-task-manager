@@ -1,13 +1,13 @@
-import "reflect-metadata";
-import * as TypeGraphQL from "type-graphql";
-import { ApolloServer } from "apollo-server";
-import { PrismaClient } from "@prisma/client";
+import 'reflect-metadata';
+import * as TypeGraphQL from 'type-graphql';
+import { ApolloServer } from 'apollo-server';
+import { PrismaClient } from '@prisma/client';
 import { WebSocketServer } from 'ws';
 
 import { useServer } from 'graphql-ws/lib/use/ws';
-import { resolvers as generatedResolvers } from "./prisma/generated/type-graphql";
-import { SignUpResolver as signUpResolver } from "./src/graphql/userAdd";
-import { SignInResolver as signInResolver } from "./src/graphql/userAuth";
+import { resolvers as generatedResolvers } from './prisma/generated/type-graphql';
+import { SignUpResolver as signUpResolver } from './src/graphql/userAdd';
+import { SignInResolver as signInResolver } from './src/graphql/userAuth';
 
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 
@@ -31,8 +31,9 @@ const pubSub = new RedisPubSub({
 }
  */
 const resolvers = [
-    ...generatedResolvers,
-    signUpResolver,
+  ...generatedResolvers,
+  signUpResolver,
+  signInResolver,
 
   /*   SubscriptionResolver, */
 ] as TypeGraphQL.NonEmptyArray<Function>;
@@ -41,16 +42,19 @@ async function main() {
   const schema = await TypeGraphQL.buildSchema({
     resolvers,
     pubSub,
-    emitSchemaFile: "./generated-schema.graphql",
+    emitSchemaFile: './generated-schema.graphql',
     validate: false,
   });
-
 
   const prisma = new PrismaClient();
   const server = new ApolloServer({
     schema,
     context: (): Context => ({ prisma }),
     introspection: true,
+    cors: {
+      origin: ['http://localhost:8000', 'https://studio.apollographql.com'],
+      credentials: true,
+    },
   });
   const wsServer = new WebSocketServer({
     server: server.httpServer,

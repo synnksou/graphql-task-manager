@@ -16,7 +16,6 @@ export class SignUpResolver {
     const prisma = new PrismaClient();
 
     const date = formatISO(new Date());
-    console.log({date})
 
     const user = await prisma.user.create({
       data: {
@@ -25,11 +24,10 @@ export class SignUpResolver {
         name,
         active: false,
         preferences: {},
-        last_sign_in_at: date
+        last_sign_in_at: date,
       },
     });
 
     return user;
   }
 }
-

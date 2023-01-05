@@ -20,7 +20,7 @@ model User {
     password_digest String
     active          Boolean
     preferences     Json
-    email           String
+    email           String         @unique
     last_sign_in_at DateTime
     tasks           Task[]
     comments        Comment[]
@@ -29,6 +29,8 @@ model User {
     createdAt DateTime   @default(now()) @map(name: "created_at")
     updatedAt DateTime   @updatedAt @map(name: "updated_at")
     assignees Assignee[]
+
+    @@index([id, email])
 }
 
 model Task {

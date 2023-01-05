@@ -32,18 +32,17 @@ export const GET_CURRENT_USER = gql`
 `
 
 export const LOGIN_USER_MUTATION = gql`
-  mutation loginUser($email: String!, $password: String!) {
-    loginUser(where: { email: $email, password: $password }) {
+  mutation signIn($email: String!, $password: String!) {
+    signIn(email: $email, password: $password) {
       id
       name
     }
   }
-  ${USER_FRAGMENT}
 `
 
 export const CREATE_USER_MUTATION = gql`
   mutation createUser($email: String!, $password: String!, $name: String!) {
-    createUser(input: { email: $email, password: $password, name: $name }) {
+    signUp(input: { email: $email, password: $password, name: $name }) {
       user {
         id
       }

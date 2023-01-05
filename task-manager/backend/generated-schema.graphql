@@ -1292,6 +1292,7 @@ type Mutation {
   deleteOneNotification(where: NotificationWhereUniqueInput!): Notification
   deleteOneTask(where: TaskWhereUniqueInput!): Task
   deleteOneUser(where: UserWhereUniqueInput!): User
+  signIn(email: String!, password: String!): User!
   signUp(email: String!, name: String!, password_digest: String!): User!
   updateManyAction(data: ActionUpdateManyMutationInput!, where: ActionWhereInput): AffectedRowsOutput!
   updateManyAssignee(data: AssigneeUpdateManyMutationInput!, where: AssigneeWhereInput): AffectedRowsOutput!
@@ -2900,5 +2901,6 @@ input UserWhereInput {
 }
 
 input UserWhereUniqueInput {
+  email: String
   id: String
 }
