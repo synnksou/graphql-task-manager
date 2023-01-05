@@ -511,7 +511,7 @@ export function applyOutputTypesEnhanceMap(
 const inputsInfo = {
   UserWhereInput: ["AND", "OR", "NOT", "id", "name", "password_digest", "active", "preferences", "email", "last_sign_in_at", "tasks", "comments", "notifications", "createdAt", "updatedAt", "assignees"],
   UserOrderByWithRelationInput: ["id", "name", "password_digest", "active", "preferences", "email", "last_sign_in_at", "tasks", "comments", "notifications", "createdAt", "updatedAt", "assignees"],
-  UserWhereUniqueInput: ["id"],
+  UserWhereUniqueInput: ["id", "email"],
   UserOrderByWithAggregationInput: ["id", "name", "password_digest", "active", "preferences", "email", "last_sign_in_at", "createdAt", "updatedAt", "_count", "_max", "_min"],
   UserScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "id", "name", "password_digest", "active", "preferences", "email", "last_sign_in_at", "createdAt", "updatedAt"],
   TaskWhereInput: ["AND", "OR", "NOT", "id", "title", "description", "ownerId", "date", "state", "userId", "comments", "actions", "createdAt", "updatedAt", "assignees"],

@@ -1,36 +1,33 @@
-import { Arg, Mutation, Query, Resolver } from 'type-graphql';
+import { Arg, Mutation, Resolver } from 'type-graphql';
 import { User } from '../../prisma/generated/type-graphql';
 import bcrypt from 'bcrypt';
 import { PrismaClient } from '@prisma/client';
-import { formatISO } from 'date-fns';
-
 
 @Resolver()
 export class SignInResolver {
   @Mutation(() => User)
-  async signUp(
+  async signIn(
     @Arg('email') email: string,
-    @Arg('passwordDigest') passwordDigest: string,
+    @Arg('password') password: string,
   ): Promise<User> {
-    const hashedPassword = await bcrypt.hash(passwordDigest, 12);
     const prisma = new PrismaClient();
+    const errorMessage = 'Un problème est survenue';
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
 
-    const user = await prisma.user.findUnique(
-        {
-            where:{
-                email
-            }
-        }
-    )
-    
-    if(!!user){
-        throw new Error(" No User")
+    if (!Boolean(user)) {
+      throw new Error(errorMessage);
     }
 
-    if(user?.password_digest !== hashedPassword){
-        throw new Error("Error password")
+    const match = await bcrypt.compare(password, user.password_digest);
+
+    if (!match) {
+      throw new Error(errorMessage);
     }
 
-    return user ;
+    return user;
   }
 }
