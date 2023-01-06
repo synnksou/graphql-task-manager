@@ -12,7 +12,7 @@ const SignIn = () => {
   const [email, setEmail] = React.useState(User.get('new', 'email'))
   const [password, setPassword] = React.useState()
   const [signIn, { data, loading, error }] = useMutation(LOGIN_USER_MUTATION)
-  console.log({ error, data })
+
   const onInputChange = (e) => {
     const value = e.target.value
 

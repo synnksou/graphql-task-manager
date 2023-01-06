@@ -14,7 +14,6 @@ const SignUp = () => {
   const [password, setPassword] = React.useState()
   const [signUp, { data, loading, error }] = useMutation(CREATE_USER_MUTATION)
 
-
   const onInputChange = (e) => {
     User.set('new', { [e.target.name]: e.target.value })
     switch (e.target.name) {
@@ -26,14 +25,14 @@ const SignUp = () => {
         break
       case 'password':
         setPassword(e.target.value)
-        console.log(password)
+
         break
     }
   }
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log(password)
+
     signUp({ variables: { email: email, password: password, name: name } })
       .then(() => {
         navigate('/sign-in')

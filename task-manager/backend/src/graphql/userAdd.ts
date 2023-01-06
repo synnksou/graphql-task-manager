@@ -17,7 +17,6 @@ export class SignUpResolver {
     const date = formatISO(new Date());
     const hashedPassword = await bcrypt.hash(password_digest, 12);
 
-    console.log({ hashedPassword });
     const userFind = await prisma.user.findUnique({
       where: {
         email,

@@ -27,7 +27,7 @@ const AddTask = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log({ title, description, email })
+
     createTask({
       variables: {
         title: title,
