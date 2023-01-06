@@ -28,9 +28,9 @@ export class TaskCreateInput {
   description?: string | undefined;
 
   @TypeGraphQL.Field(_type => UserCreateNestedOneWithoutTasksInput, {
-    nullable: false
+    nullable: true
   })
-  ownerId!: UserCreateNestedOneWithoutTasksInput;
+  ownerId?: UserCreateNestedOneWithoutTasksInput | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false

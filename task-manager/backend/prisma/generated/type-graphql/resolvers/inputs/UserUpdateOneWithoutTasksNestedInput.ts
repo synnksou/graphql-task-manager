@@ -8,10 +8,10 @@ import { UserUpdateWithoutTasksInput } from "../inputs/UserUpdateWithoutTasksInp
 import { UserUpsertWithoutTasksInput } from "../inputs/UserUpsertWithoutTasksInput";
 import { UserWhereUniqueInput } from "../inputs/UserWhereUniqueInput";
 
-@TypeGraphQL.InputType("UserUpdateOneRequiredWithoutTasksNestedInput", {
+@TypeGraphQL.InputType("UserUpdateOneWithoutTasksNestedInput", {
   isAbstract: true
 })
-export class UserUpdateOneRequiredWithoutTasksNestedInput {
+export class UserUpdateOneWithoutTasksNestedInput {
   @TypeGraphQL.Field(_type => UserCreateWithoutTasksInput, {
     nullable: true
   })
@@ -26,6 +26,16 @@ export class UserUpdateOneRequiredWithoutTasksNestedInput {
     nullable: true
   })
   upsert?: UserUpsertWithoutTasksInput | undefined;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  disconnect?: boolean | undefined;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: true
+  })
+  delete?: boolean | undefined;
 
   @TypeGraphQL.Field(_type => UserWhereUniqueInput, {
     nullable: true

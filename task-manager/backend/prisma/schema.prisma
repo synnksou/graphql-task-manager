@@ -1,6 +1,6 @@
 datasource db {
     provider = "postgresql"
-    url      = "postgres://postgres:postgrespw@localhost:49153"
+    url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -88,7 +88,7 @@ model Assignee {
     taskId String
     userId String
 
-    @@index([taskId, userId])
+    @@index([id, taskId, userId])
 }
 
 enum State {

@@ -627,7 +627,7 @@ const inputsInfo = {
   ActionCreateNestedManyWithoutTaskInput: ["create", "connectOrCreate", "createMany", "connect"],
   AssigneeCreateNestedManyWithoutTaskInput: ["create", "connectOrCreate", "createMany", "connect"],
   NullableStringFieldUpdateOperationsInput: ["set"],
-  UserUpdateOneRequiredWithoutTasksNestedInput: ["create", "connectOrCreate", "upsert", "connect", "update"],
+  UserUpdateOneWithoutTasksNestedInput: ["create", "connectOrCreate", "upsert", "disconnect", "delete", "connect", "update"],
   EnumStateFieldUpdateOperationsInput: ["set"],
   CommentUpdateManyWithoutTaskNestedInput: ["create", "connectOrCreate", "upsert", "createMany", "set", "disconnect", "delete", "connect", "update", "updateMany", "deleteMany"],
   ActionUpdateManyWithoutTaskNestedInput: ["create", "connectOrCreate", "upsert", "createMany", "set", "disconnect", "delete", "connect", "update", "updateMany", "deleteMany"],

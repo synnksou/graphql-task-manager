@@ -9,7 +9,7 @@ import { resolvers as generatedResolvers } from './prisma/generated/type-graphql
 import { SignUpResolver as signUpResolver } from './src/graphql/userAdd';
 import { SignInResolver as signInResolver } from './src/graphql/userAuth';
 import { CreateTaskResolver as createTaskResolver } from './src/graphql/createTask';
-
+import { AssigneeTaskToUserResolver as assigneeTask } from './src/graphql/addAssignee';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 
 interface Context {
@@ -36,7 +36,7 @@ const resolvers = [
   signUpResolver,
   signInResolver,
   createTaskResolver,
-
+  assigneeTask,
   /*   SubscriptionResolver, */
 ] as TypeGraphQL.NonEmptyArray<Function>;
 

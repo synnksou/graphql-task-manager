@@ -3,12 +3,8 @@ import Table from 'react-bootstrap/Table'
 import Badge from 'react-bootstrap/Badge'
 import { useQuery } from '@apollo/react-hooks'
 import { GET_ALL_TASKS } from '../store/GraphqlQueries'
-
-const STATE = [
-  { value: 'CREATED', label: 'Created', variant: 'primary' },
-  { value: 'INPROGRESS', label: 'In Progress', variant: 'warning' },
-  { value: 'DONE', label: 'Done', variant: 'success' },
-]
+import { MdPersonAdd } from 'react-icons/md'
+import { Link } from 'gatsby-link'
 
 const Tasks = () => {
   const { loading, error, data } = useQuery(GET_ALL_TASKS)
@@ -28,6 +24,7 @@ const Tasks = () => {
             <th>State</th>
             <th>Due Date</th>
             <th>Assignee</th>
+            {email && <th></th>}
           </tr>
         </thead>
         <tbody>
@@ -38,16 +35,28 @@ const Tasks = () => {
                 <Badge variant={'primary'}>{task.state}</Badge>
               </td>
               <td>{task.date}</td>
-              <td>{task.assignee}</td>
+              <td>
+                {task?.assignees.map((user) => (
+                  <p>{user.user.name}</p>
+                ))}
+              </td>
+              {email && (
+                <td>
+                  <Link
+                    to={`/add-assignee/${task.id}`}
+                    className="btn btn-success"
+                  >
+                    <MdPersonAdd />
+                  </Link>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
       </Table>
       {email && (
         <a href="/add-task" className="btn btn-primary">
-          <button type="button" class="btn btn-primary">
-            Ajouter une tâche
-          </button>
+          Ajouter une tâche
         </a>
       )}
     </div>

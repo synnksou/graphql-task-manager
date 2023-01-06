@@ -1268,6 +1268,7 @@ input JsonWithAggregatesFilter {
 }
 
 type Mutation {
+  assigneeTask(taskId: String!, userId: String!): Assignee!
   createManyAction(data: [ActionCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyAssignee(data: [AssigneeCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyComment(data: [CommentCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
@@ -1956,7 +1957,7 @@ type Task {
   date: DateTime!
   description: String
   id: ID!
-  ownerId: User!
+  ownerId: User
   state: State!
   title: String!
   updatedAt: DateTime!
@@ -2000,7 +2001,7 @@ input TaskCreateInput {
   date: DateTime!
   description: String
   id: String
-  ownerId: UserCreateNestedOneWithoutTasksInput!
+  ownerId: UserCreateNestedOneWithoutTasksInput
   state: State
   title: String!
   updatedAt: DateTime
@@ -2084,7 +2085,7 @@ input TaskCreateWithoutActionsInput {
   date: DateTime!
   description: String
   id: String
-  ownerId: UserCreateNestedOneWithoutTasksInput!
+  ownerId: UserCreateNestedOneWithoutTasksInput
   state: State
   title: String!
   updatedAt: DateTime
@@ -2097,7 +2098,7 @@ input TaskCreateWithoutAssigneesInput {
   date: DateTime!
   description: String
   id: String
-  ownerId: UserCreateNestedOneWithoutTasksInput!
+  ownerId: UserCreateNestedOneWithoutTasksInput
   state: State
   title: String!
   updatedAt: DateTime
@@ -2110,7 +2111,7 @@ input TaskCreateWithoutCommentsInput {
   date: DateTime!
   description: String
   id: String
-  ownerId: UserCreateNestedOneWithoutTasksInput!
+  ownerId: UserCreateNestedOneWithoutTasksInput
   state: State
   title: String!
   updatedAt: DateTime
@@ -2278,7 +2279,7 @@ input TaskUpdateInput {
   date: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  ownerId: UserUpdateOneRequiredWithoutTasksNestedInput
+  ownerId: UserUpdateOneWithoutTasksNestedInput
   state: EnumStateFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -2349,7 +2350,7 @@ input TaskUpdateWithoutActionsInput {
   date: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  ownerId: UserUpdateOneRequiredWithoutTasksNestedInput
+  ownerId: UserUpdateOneWithoutTasksNestedInput
   state: EnumStateFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -2362,7 +2363,7 @@ input TaskUpdateWithoutAssigneesInput {
   date: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  ownerId: UserUpdateOneRequiredWithoutTasksNestedInput
+  ownerId: UserUpdateOneWithoutTasksNestedInput
   state: EnumStateFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -2375,7 +2376,7 @@ input TaskUpdateWithoutCommentsInput {
   date: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  ownerId: UserUpdateOneRequiredWithoutTasksNestedInput
+  ownerId: UserUpdateOneWithoutTasksNestedInput
   state: EnumStateFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -2784,14 +2785,6 @@ input UserUpdateOneRequiredWithoutNotificationsNestedInput {
   upsert: UserUpsertWithoutNotificationsInput
 }
 
-input UserUpdateOneRequiredWithoutTasksNestedInput {
-  connect: UserWhereUniqueInput
-  connectOrCreate: UserCreateOrConnectWithoutTasksInput
-  create: UserCreateWithoutTasksInput
-  update: UserUpdateWithoutTasksInput
-  upsert: UserUpsertWithoutTasksInput
-}
-
 input UserUpdateOneWithoutCommentsNestedInput {
   connect: UserWhereUniqueInput
   connectOrCreate: UserCreateOrConnectWithoutCommentsInput
@@ -2800,6 +2793,16 @@ input UserUpdateOneWithoutCommentsNestedInput {
   disconnect: Boolean
   update: UserUpdateWithoutCommentsInput
   upsert: UserUpsertWithoutCommentsInput
+}
+
+input UserUpdateOneWithoutTasksNestedInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutTasksInput
+  create: UserCreateWithoutTasksInput
+  delete: Boolean
+  disconnect: Boolean
+  update: UserUpdateWithoutTasksInput
+  upsert: UserUpsertWithoutTasksInput
 }
 
 input UserUpdateWithoutAssigneesInput {

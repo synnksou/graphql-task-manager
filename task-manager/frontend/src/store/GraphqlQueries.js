@@ -55,6 +55,7 @@ export const CREATE_USER_MUTATION = gql`
 export const GET_ALL_TASKS = gql`
   query tasks {
     tasks {
+      id
       state
       description
       title
@@ -74,6 +75,25 @@ export const CREATE_TASK_MUTATION = gql`
     createTask(title: $title, description: $description, email: $email) {
       title
       description
+    }
+  }
+`
+
+export const GET_ALL_USERS = gql`
+  query users {
+    users {
+      id
+      name
+      email
+    }
+  }
+`
+
+export const CREATE_ASSIGNEE = gql`
+  mutation assigneeTask($taskId: String!, $userId: String!) {
+    assigneeTask(taskId: $taskId, userId: $userId) {
+      taskId
+      userId
     }
   }
 `

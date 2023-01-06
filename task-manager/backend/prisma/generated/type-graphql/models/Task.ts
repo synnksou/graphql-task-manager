@@ -29,7 +29,7 @@ export class Task {
   })
   description?: string | null;
 
-  ownerId?: User;
+  ownerId?: User | null;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false

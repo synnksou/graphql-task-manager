@@ -9,7 +9,7 @@ import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdat
 import { EnumStateFieldUpdateOperationsInput } from "../inputs/EnumStateFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
-import { UserUpdateOneRequiredWithoutTasksNestedInput } from "../inputs/UserUpdateOneRequiredWithoutTasksNestedInput";
+import { UserUpdateOneWithoutTasksNestedInput } from "../inputs/UserUpdateOneWithoutTasksNestedInput";
 
 @TypeGraphQL.InputType("TaskUpdateInput", {
   isAbstract: true
@@ -30,10 +30,10 @@ export class TaskUpdateInput {
   })
   description?: NullableStringFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutTasksNestedInput, {
+  @TypeGraphQL.Field(_type => UserUpdateOneWithoutTasksNestedInput, {
     nullable: true
   })
-  ownerId?: UserUpdateOneRequiredWithoutTasksNestedInput | undefined;
+  ownerId?: UserUpdateOneWithoutTasksNestedInput | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true

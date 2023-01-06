@@ -19,6 +19,7 @@
     "graphql-scalars": "^1.20.1",
     "graphql-subscriptions": "^2.0.0",
     "graphql-ws": "^5.11.2",
+    "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13",
     "tslib": "^2.4.1",
     "type-graphql": "2.0.0-beta.1",

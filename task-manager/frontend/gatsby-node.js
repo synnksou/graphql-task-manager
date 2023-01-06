@@ -32,3 +32,15 @@ exports.onCreateWebpackConfig = ({ stage, actions, plugins, getConfig }) => {
   actions.replaceWebpackConfig(oldConfig)
   actions.setWebpackConfig(config)
 }
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  console.log('Page - ' + page.page)
+  if (page.path.match(/^\/add-assignee/)) {
+    createPage({
+      path: '/add-assignee',
+      matchPath: '/add-assignee/:id',
+      component: path.resolve('src/pages/add-assignee.js'),
+    })
+  }
+}
