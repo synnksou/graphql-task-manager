@@ -37,7 +37,7 @@ model Task {
     id          String     @id @unique @default(uuid())
     title       String
     description String?
-    ownerId     User       @relation(fields: [userId], references: [id])
+    ownerId     User?      @relation(fields: [userId], references: [id])
     date        DateTime
     state       State      @default(CREATED)
     userId      String

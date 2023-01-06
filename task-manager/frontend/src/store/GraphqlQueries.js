@@ -36,17 +36,44 @@ export const LOGIN_USER_MUTATION = gql`
     signIn(email: $email, password: $password) {
       id
       name
+      email
     }
   }
 `
 
 export const CREATE_USER_MUTATION = gql`
   mutation signUp($email: String!, $password: String!, $name: String!) {
-    signUp(email: $email, password_digest: $password, name: $name ) {
+    signUp(email: $email, password_digest: $password, name: $name) {
       id
-      name 
+      name
       email
       password_digest
+    }
+  }
+`
+
+export const GET_ALL_TASKS = gql`
+  query tasks {
+    tasks {
+      state
+      description
+      title
+      userId
+      date
+      assignees {
+        user {
+          name
+        }
+      }
+    }
+  }
+`
+
+export const CREATE_TASK_MUTATION = gql`
+  mutation createTask($title: String!, $description: String!, $email: String!) {
+    createTask(title: $title, description: $description, email: $email) {
+      title
+      description
     }
   }
 `

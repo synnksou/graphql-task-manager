@@ -6,7 +6,7 @@ import AppNavbar from 'components/AppNavbar'
 
 import { getClient } from 'store/GraphqlQueries'
 
-const Page = ({ children, id /*loginRequired*/ }) => {
+const Page = ({ children, id, loginRequired }) => {
   const pageRef = useRef()
 
   useEffect(() => {

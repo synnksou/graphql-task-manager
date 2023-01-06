@@ -1280,6 +1280,7 @@ type Mutation {
   createOneNotification(data: NotificationCreateInput!): Notification!
   createOneTask(data: TaskCreateInput!): Task!
   createOneUser(data: UserCreateInput!): User!
+  createTask(description: String!, email: String!, title: String!): Task!
   deleteManyAction(where: ActionWhereInput): AffectedRowsOutput!
   deleteManyAssignee(where: AssigneeWhereInput): AffectedRowsOutput!
   deleteManyComment(where: CommentWhereInput): AffectedRowsOutput!

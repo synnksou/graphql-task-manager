@@ -1,4 +1,4 @@
-# Cyrill62 repository for GraphQL examples
+# Antoine Henrich repository 
 
 ## TaskManager
 ### With Node.js / TypeScript / Prisma
