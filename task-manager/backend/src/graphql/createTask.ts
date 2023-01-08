@@ -1,5 +1,5 @@
 import { Arg, Mutation, Query, Resolver } from 'type-graphql';
-import { Task, User } from '../../prisma/generated/type-graphql';
+import { Task } from '../../prisma/generated/type-graphql';
 import bcrypt from 'bcrypt';
 import { PrismaClient } from '@prisma/client';
 import { formatISO } from 'date-fns';

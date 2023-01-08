@@ -10,6 +10,7 @@ import { SignUpResolver as signUpResolver } from './src/graphql/userAdd';
 import { SignInResolver as signInResolver } from './src/graphql/userAuth';
 import { CreateTaskResolver as createTaskResolver } from './src/graphql/createTask';
 import { AssigneeTaskToUserResolver as assigneeTask } from './src/graphql/addAssignee';
+import { AddCommentTaskResolver as addCommentTaskResolver } from './src/graphql/commentTask';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 
 interface Context {
@@ -37,6 +38,7 @@ const resolvers = [
   signInResolver,
   createTaskResolver,
   assigneeTask,
+  addCommentTaskResolver,
   /*   SubscriptionResolver, */
 ] as TypeGraphQL.NonEmptyArray<Function>;
 

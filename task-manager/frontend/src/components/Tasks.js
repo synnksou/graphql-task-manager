@@ -4,6 +4,7 @@ import Badge from 'react-bootstrap/Badge'
 import { useQuery } from '@apollo/react-hooks'
 import { GET_ALL_TASKS } from '../store/GraphqlQueries'
 import { MdPersonAdd } from 'react-icons/md'
+import { IoEnter } from 'react-icons/io5'
 import { Link } from 'gatsby-link'
 
 const Tasks = () => {
@@ -24,6 +25,9 @@ const Tasks = () => {
             <th>State</th>
             <th>Due Date</th>
             <th>Assignee</th>
+            <th>Nb de Commentaires</th>
+
+            {email && <th></th>}
             {email && <th></th>}
           </tr>
         </thead>
@@ -40,13 +44,24 @@ const Tasks = () => {
                   <p>{user.user.name}</p>
                 ))}
               </td>
+              <td>{task?.comments.length ?? 0}</td>
               {email && (
-                <td>
+                <td class="p-2">
                   <Link
                     to={`/add-assignee/${task.id}`}
                     className="btn btn-success"
                   >
                     <MdPersonAdd />
+                  </Link>
+                </td>
+              )}
+              {email && (
+                <td class="p-2">
+                  <Link
+                    className="btn btn-primary"
+                    to={`/detail-task/${task.id}`}
+                  >
+                    <IoEnter />
                   </Link>
                 </td>
               )}

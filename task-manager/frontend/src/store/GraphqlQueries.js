@@ -66,6 +66,37 @@ export const GET_ALL_TASKS = gql`
           name
         }
       }
+      comments {
+        content
+      }
+    }
+  }
+`
+
+export const GET_ONE_TASK = gql`
+  query task($where: TaskWhereUniqueInput!) {
+    task(where: $where) {
+      id
+      state
+      description
+      title
+      userId
+      date
+      assignees {
+        user {
+          name
+        }
+      }
+      comments {
+        id
+        content
+        owner {
+          id
+          name
+          email
+        }
+        createdAt
+      }
     }
   }
 `
@@ -94,6 +125,30 @@ export const CREATE_ASSIGNEE = gql`
     assigneeTask(taskId: $taskId, userId: $userId) {
       taskId
       userId
+    }
+  }
+`
+
+export const UPDATE_TASK = gql`
+  mutation updateOneTask(
+    $data: TaskUpdateInput!
+    $where: TaskWhereUniqueInput!
+  ) {
+    updateOneTask(data: $data, where: $where) {
+      state
+    }
+  }
+`
+export const CREATE_COMMENT = gql`
+  mutation commentTaskUser(
+    $content: String!
+    $taskId: String!
+    $userId: String!
+  ) {
+    commentTaskUser(content: $content, taskId: $taskId, userId: $userId) {
+      ownerId
+      taskId
+      content
     }
   }
 `

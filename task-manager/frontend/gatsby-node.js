@@ -43,4 +43,11 @@ exports.onCreatePage = async ({ page, actions }) => {
       component: path.resolve('src/pages/add-assignee.js'),
     })
   }
+  if (page.path.match(/^\/detail-task/)) {
+    createPage({
+      path: '/detail-task',
+      matchPath: '/detail-task/:id',
+      component: path.resolve('src/pages/detail-task.js'),
+    })
+  }
 }

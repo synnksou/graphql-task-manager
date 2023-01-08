@@ -1269,6 +1269,7 @@ input JsonWithAggregatesFilter {
 
 type Mutation {
   assigneeTask(taskId: String!, userId: String!): Assignee!
+  commentTaskUser(content: String!, taskId: String!, userId: String!): Comment!
   createManyAction(data: [ActionCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyAssignee(data: [AssigneeCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createManyComment(data: [CommentCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
